@@ -11,7 +11,7 @@ export class User {
     id: number ;
 
     @Prop()
-    static username: string;
+    username: string;
   
     @Prop()
     @IsEmail()

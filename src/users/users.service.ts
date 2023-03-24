@@ -15,12 +15,12 @@ export class UsersService {
     return createdUser.save();
   }
 
-  findAll() {
+  findAll() : Promise<User[]> {
     return this.UserModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(id: number) : Promise<User> {
+    return this.UserModel.findById(id).exec();
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
@@ -28,6 +28,6 @@ export class UsersService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} user`;
+    return this.UserModel.findById(id).deleteOne();
   }
 }
