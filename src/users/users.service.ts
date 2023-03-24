@@ -7,19 +7,18 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class UsersService {
+  constructor(@InjectModel(User.name) private UserModel: Model<UserDocument>) {}
 
-  constructor(@InjectModel(User.name) private UserModel:Model<UserDocument>){}
-
-  create(createUserDto: CreateUserDto): Promise<User>{
+  create(createUserDto: CreateUserDto): Promise<User> {
     const createdUser = new this.UserModel(createUserDto);
     return createdUser.save();
   }
 
-  findAll() : Promise<User[]> {
+  findAll(): Promise<User[]> {
     return this.UserModel.find().exec();
   }
 
-  findOne(id: number) : Promise<User> {
+  findOne(id: number): Promise<User> {
     return this.UserModel.findById(id).exec();
   }
 

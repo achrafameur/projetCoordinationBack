@@ -4,6 +4,6 @@ import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [UsersModule],
-  providers: [AuthService]
+  providers: [AuthService],
 })
 export class AuthModule {}
