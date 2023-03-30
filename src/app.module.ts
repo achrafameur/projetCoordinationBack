@@ -14,10 +14,12 @@ import { UsersService } from './users/users.service';
     UsersModule,
     PostsModule,
     AuthModule,
-    MongooseModule.forRoot('mongodb://localhost:27017',{dbName: 'projetCoordinationFB'}),
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }])
+    MongooseModule.forRoot('mongodb://localhost:27017', {
+      dbName: 'projetCoordinationFB',
+    }),
+    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
   ],
-  controllers: [AppController,UsersController],
-  providers: [AppService,UsersService],
+  controllers: [AppController, UsersController],
+  providers: [AppService, UsersService],
 })
 export class AppModule {}
