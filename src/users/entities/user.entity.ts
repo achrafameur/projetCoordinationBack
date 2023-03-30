@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, MaxLength } from 'class-validator';
 import { HydratedDocument } from 'mongoose';
 
 export type UserDocument = HydratedDocument<User>;
@@ -10,6 +10,7 @@ export class User {
   id: number;
 
   @Prop()
+  @MaxLength(30)
   username: string;
 
   @Prop()
@@ -18,6 +19,7 @@ export class User {
 
   @Prop()
   @IsNotEmpty()
+  @MaxLength(30)
   password: string;
 }
 
