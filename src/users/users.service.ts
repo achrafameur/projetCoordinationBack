@@ -3,7 +3,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserDocument } from './entities/user.entity';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
+import { Roles } from './roles';
 
 @Injectable()
 export class UsersService {
@@ -11,6 +12,7 @@ export class UsersService {
 
   create(createUserDto: CreateUserDto): Promise<User> {
     const createdUser = new this.UserModel(createUserDto);
+    createdUser.role = Roles.USER;
     return createdUser.save();
   }
 
@@ -36,5 +38,10 @@ export class UsersService {
 
   remove(id: string): Promise<User> {
     return this.UserModel.findByIdAndDelete(id);
+  }
+
+  findOneByUsername(username: string) {
+    console.log(username);
+    return this.UserModel.find({ username: username }).exec();
   }
 }
