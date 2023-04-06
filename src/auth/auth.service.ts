@@ -1,7 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
 import { InjectModel } from '@nestjs/mongoose';
-import { User, UserDocument } from 'src/users/entities/user.entity';
+import { User, UserDocument } from '../users/entities/user.entity';
 import { Model } from 'mongoose';
 
 @Injectable()
