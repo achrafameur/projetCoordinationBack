@@ -40,8 +40,7 @@ export class UsersService {
     return this.UserModel.findByIdAndDelete(id);
   }
 
-  findOneByUsername(username: string) {
-    console.log(username);
-    return this.UserModel.find({ username: username }).exec();
+  async findOneByUsername(username: string) {
+    return this.UserModel.findOne({ username: username }).exec();
   }
 }

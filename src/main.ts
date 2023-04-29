@@ -12,6 +12,8 @@ async function bootstrap() {
     }),
   );
 
+  // app.use(cors());
+
   const config = new DocumentBuilder()
     .setTitle('projet coordination')
     .setDescription('The projet API description')
