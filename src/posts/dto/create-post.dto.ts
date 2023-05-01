@@ -6,4 +6,7 @@ export class CreatePostDto {
 
   @ApiProperty({ required: true })
   description: string;
+
+  @ApiProperty({ required: true })
+  image: string;
 }

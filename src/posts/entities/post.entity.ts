@@ -17,6 +17,10 @@ export class Post {
   @Prop({ required: true })
   @MaxLength(500)
   description: string;
+
+  @Prop()
+  @MaxLength(500)
+  image: string;
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);
